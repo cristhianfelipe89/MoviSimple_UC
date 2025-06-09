@@ -1,0 +1,31 @@
+{
+    "name": "movisimple",
+    "version": "1.0.0",
+    "description": "Aplicación de rutas óptimas con algoritmo de Dijkstra - Local y Nube",
+    "main": "api/server.js",
+    "scripts": {
+        "dev": "node api/server.js",
+        "start": "node api/server.js",
+        "build": "node scripts/generate-edges.js",
+        "setup-jsonbin": "node scripts/setup-jsonbin.js",
+        "sync-from-cloud": "node scripts/sync-from-cloud.js",
+        "sync-to-cloud": "node scripts/sync-to-cloud.js",
+        "sync-both": "npm run sync-from-cloud && npm run sync-to-cloud"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "node-fetch": "^2.7.0"
+    },
+    "engines": {
+        "node": "18.x"
+    },
+    "keywords": [
+        "vanilla-js",
+        "dijkstra",
+        "graph",
+        "algorithm",
+        "hybrid"
+    ],
+    "author": "Tu Nombre",
+    "license": "GPL-3.0"
+}
