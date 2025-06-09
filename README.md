@@ -1,89 +1,37 @@
 # MoviSimple 🚗
 
-Aplicación web que simula viajes óptimos utilizando el algoritmo de Dijkstra en un grafo de 6 nodos. Permite registro de usuarios, autenticación y cálculo de rutas con visualización interactiva.
+Aplicación web que simula viajes óptimos utilizando el algoritmo de Dijkstra en un grafo de 6 nodos.
 
-## 📋 Descripción del Proyecto
+## 📋 Descripción
 
-MoviSimple es una aplicación académica que demuestra la implementación del algoritmo de Dijkstra para encontrar rutas óptimas en un grafo. Los usuarios pueden registrarse, iniciar sesión, seleccionar puntos de origen y destino en un mapa visual, y observar el cálculo de la ruta más corta con animación paso a paso.
+MoviSimple es una aplicación que demuestra la implementación del algoritmo de Dijkstra para encontrar rutas óptimas. Los usuarios pueden registrarse, iniciar sesión y calcular la ruta más corta entre dos puntos en un mapa visual.
 
-### Características Principales
+### Características
 
-- **Algoritmo de Dijkstra** implementado desde cero en JavaScript
-- **Visualización interactiva** del grafo con SVG
+- **Algoritmo de Dijkstra** implementado en JavaScript
+- **Visualización interactiva** del grafo
 - **Sistema de autenticación** con registro y login
-- **Persistencia híbrida** (archivos locales + nube)
 - **Animación** del recorrido de la ruta óptima
 - **Cálculo de costos** basado en tiempo de viaje
-- **Interfaz responsive** con diseño moderno
 
-## 🏗️ Arquitectura y Tecnologías
+## 🛠️ Tecnologías
 
-### Frontend
-- **HTML5** - Estructura de páginas
-- **CSS3** - Estilos y animaciones (sin frameworks)
-- **JavaScript ES6+** - Lógica de aplicación (Vanilla JS)
-- **SVG** - Visualización del grafo y animaciones
+- **Frontend**: HTML, CSS, JavaScript (Vanilla)
+- **Backend**: Node.js, Express, Vercel Functions
+- **Persistencia**: Archivos JSON locales + JSONBin (nube)
 
-### Backend
-- **Node.js** - Servidor local (Express)
-- **Vercel Functions** - Serverless para producción
-- **JSONBin API** - Persistencia en la nube
+## 🚀 Instalación
 
-### Persistencia
-- **Archivos JSON** - Almacenamiento local
-- **JSONBin** - Base de datos en la nube
-- **Sincronización** - Scripts para mantener consistencia
+### Requisitos previos
+- Node.js 18+
+- npm
 
-### Algoritmos
-- **Dijkstra** - Búsqueda de ruta más corta
-- **Generación aleatoria** - Creación dinámica del grafo
-
-## 📁 Estructura del Proyecto
-
-\`\`\`
-movisimple/
-├── api/                   # Backend APIs
-│   ├── server.js          # Servidor Express (local)
-│   ├── register.js        # API registro (Vercel)
-│   ├── login.js           # API autenticación (Vercel)
-│   ├── debug-jsonbin.js   # Debug datos nube
-│   └── list-users.js      # Listar usuarios
-├── public/                # Frontend estático
-│   ├── index.html         # Página de registro
-│   ├── login.html         # Página de login
-│   ├── main.html          # Aplicación principal
-│   ├── users.html         # Visualizar usuarios
-│   ├── styles.css         # Estilos globales
-│   └── src/
-│       ├── app.js         # Lógica principal + Dijkstra
-│       └── auth.js        # Autenticación frontend
-├── data/                  # Datos locales
-│   ├── users.json         # Usuarios registrados
-│   └── edges.json         # Datos del grafo
-├── scripts/               # Scripts de utilidad
-│   ├── generate-edges.js  # Generador de grafo
-│   ├── setup-jsonbin.js   # Configuración nube
-│   ├── sync-from-cloud.js # Descarga desde nube
-│   └── sync-to-cloud.js   # Subida a nube
-├── package.json           # Dependencias y scripts
-├── vercel.json           # Configuración despliegue
-└── README.md             # Documentación
-\`\`\`
-
-## 🛠️ Instalación y Ejecución
-
-### Prerrequisitos
-
-- **Node.js 18+** - [Descargar aquí](https://nodejs.org/)
-- **npm** (incluido con Node.js)
-- **Git** - Para clonar el repositorio
-
-### Pasos de Instalación
+### Pasos
 
 1. **Clonar el repositorio**
 \`\`\`bash
-git clone https://github.com/tu-usuario/movisimple.git
-cd movisimple
+git clone https://github.com/cristhianfelipe89/MoviSimple_UC.git
+cd MoviSimple_UC
 \`\`\`
 
 2. **Instalar dependencias**
@@ -106,181 +54,21 @@ npm run dev
 http://localhost:3000
 \`\`\`
 
-### Comandos Disponibles
+## 📱 Uso
 
-\`\`\`bash
-npm run dev              # Iniciar servidor Express en puerto 3000
-npm run build           # Generar grafo aleatorio (edges.json)
-npm run sync-from-cloud # Descargar usuarios desde JSONBin
-npm run sync-to-cloud   # Subir usuarios locales a JSONBin
-npm run setup-jsonbin   # Configurar almacenamiento en nube
-\`\`\`
-
-## 📱 Uso de la Aplicación
-
-### Flujo Principal
-
-1. **Registro de Usuario**
-   - Ir a `http://localhost:3000`
-   - Completar formulario (nombre, email, contraseña)
-   - Los datos se guardan en `data/users.json`
-
-2. **Autenticación**
-   - Ir a `http://localhost:3000/login.html`
-   - Ingresar credenciales registradas
-   - Redirección automática a la aplicación
-
-3. **Cálculo de Rutas**
+1. **Registro**: Crear una cuenta en la página principal
+2. **Login**: Iniciar sesión con las credenciales
+3. **Seleccionar ruta**: 
    - Hacer clic en un nodo para seleccionar origen (azul)
    - Hacer clic en otro nodo para destino (verde)
    - Presionar "Calculate Route"
-   - Observar animación del algoritmo de Dijkstra
+4. **Ver resultados**: Observar la animación y el costo del viaje
 
-4. **Visualización de Resultados**
-   - Ruta óptima resaltada en rojo
-   - Tiempo total del viaje
-   - Costo estimado ($0.25 por segundo)
+### Usuarios de prueba
+- `grrm@gmail.com` / `456789`
+- `jm@gmail.com` / `123456`
 
-### Páginas Disponibles
-
-- **`/`** - Registro de usuarios
-- **`/login.html`** - Inicio de sesión
-- **`/main.html`** - Aplicación principal
-- **`/users.html`** - Lista de usuarios registrados
-
-## 🔧 Configuración Avanzada
-
-### Sincronización con la Nube (Opcional)
-
-Para sincronizar datos con JSONBin:
-
-1. **Crear cuenta en [jsonbin.io](https://jsonbin.io)**
-2. **Obtener API Key**
-3. **Configurar variables de entorno**
-\`\`\`bash
-echo "JSONBIN_API_KEY=tu_api_key" > .env
-echo "JSONBIN_BIN_ID=tu_bin_id" >> .env
-\`\`\`
-4. **Ejecutar configuración inicial**
-\`\`\`bash
-npm run setup-jsonbin
-\`\`\`
-
-### Personalización del Grafo
-
-El grafo se genera aleatoriamente con:
-- **6 nodos** (0-5)
-- **9 aristas** con pesos aleatorios (1-15)
-- **Posiciones fijas** para visualización
-
-Para regenerar:
-\`\`\`bash
-npm run build
-\`\`\`
-
-## 🔍 Algoritmo de Dijkstra
-
-### Implementación
-
-El algoritmo está implementado en `public/src/app.js`:
-
-\`\`\`javascript
-class GraphSimple {
-  dijkstra(start) {
-    // Inicialización de distancias
-    // Búsqueda del nodo con menor distancia
-    // Actualización de distancias de vecinos
-    // Retorna distancias y predecesores
-  }
-  
-  calculateRoute(start, end) {
-    // Ejecuta Dijkstra
-    // Reconstruye la ruta
-    // Calcula tiempo y costo
-  }
-}
-\`\`\`
-
-### Características
-
-- **Complejidad:** O(V²) donde V = número de vértices
-- **Entrada:** Nodo origen y destino
-- **Salida:** Ruta óptima, tiempo total, costo
-- **Visualización:** Animación paso a paso
-
-## 🆘 Solución de Problemas
-
-### Error: Puerto 3000 ocupado
-\`\`\`bash
-PORT=3001 npm run dev
-\`\`\`
-
-### Error: Node.js no encontrado
-\`\`\`bash
-# Verificar instalación
-node --version
-npm --version
-\`\`\`
-
-### Error: Dependencias no instaladas
-\`\`\`bash
-rm -rf node_modules package-lock.json
-npm install
-\`\`\`
-
-### Error: Grafo no se visualiza
-\`\`\`bash
-npm run build
-# Refrescar navegador
-\`\`\`
-
-### Error: No aparecen usuarios
-\`\`\`bash
-# Verificar archivo
-ls -la data/users.json
-
-# Si tienes JSONBin configurado
-npm run sync-from-cloud
-\`\`\`
-
-## 🌐 Versión en Producción
-
-La aplicación está desplegada en:
-\`\`\`
-https://movisimple-eight.vercel.app
-\`\`\`
-
-### Usuarios de Prueba
-- `admin@test.com` / `admin123`
-- `heracots@gmail.com` / `123456`
-- `xxx@gmail.com` / `123789`
-
-## 📊 Especificaciones Técnicas
-
-### Rendimiento
-- **Tiempo de cálculo:** < 1ms para grafo de 6 nodos
-- **Memoria:** ~2MB para datos completos
-- **Compatibilidad:** Navegadores modernos (ES6+)
-
-### Limitaciones
-- **Máximo 6 nodos** (configurable)
-- **Contraseñas en texto plano** (solo para demo)
-- **Sin validación de email** real
-
-## 🎓 Propósito Académico
-
-Este proyecto demuestra:
-- **Implementación de algoritmos** de grafos
-- **Estructuras de datos** (grafos, arrays, objetos)
-- **Programación orientada a objetos** en JavaScript
-- **Persistencia de datos** con diferentes métodos
-- **Visualización** de algoritmos
-- **Desarrollo full-stack** con tecnologías web
-
-## 📄 Licencia
-
-GPL-3.0 - Proyecto académico de algoritmos y estructuras de datos.
 
 ---
 
-**Desarrollado como proyecto educativo para demostrar la implementación práctica del algoritmo de Dijkstra en aplicaciones web.**
+**Desarrollado como proyecto educativo para demostrar la implementación práctica de las estructura de datos y el desarrollo de vanilla javascript.**
