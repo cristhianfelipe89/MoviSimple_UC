@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "buildCommand": "node scripts/generate-edges.js",
+  "rewrites": [
+    { "source": "/api/register", "destination": "/api/register.js" },
+    { "source": "/api/login", "destination": "/api/login.js" },
+    { "source": "/", "destination": "/public/index.html" },
+    { "source": "/src/(.*)", "destination": "/src/$1" },
+    { "source": "/data/(.*)", "destination": "/data/$1" },
+    { "source": "/(.*)", "destination": "/public/$1" }
+  ]
+}
